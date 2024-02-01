@@ -16,7 +16,6 @@ const Home = () => {
             .catch(err => console.log(err))
     }, [])
 
-    console.log(show);
     return (
         <div className='w-11/12 lg:w-9/12 mx-auto my-12'>
             <h2 className="text-center text-4xl font-bold text-slate-300">Explore shows</h2>

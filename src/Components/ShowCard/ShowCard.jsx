@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const ShowCard = ({ item }) => {
-    console.log(item);
+    
 
     return (
         <div className="myShadow group bg-gradient-to-br  from-[#171E4A] via-[#41174a] to-[#4a2317] hover:bg-gradient-to-tl  px-3 md:px-6 pt-4 pb-5 text-slate-300">

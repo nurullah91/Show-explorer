@@ -40,7 +40,7 @@ const ShowDetails = () => {
                     <div className="lg:w-1/2">
                         {/*Section Header */}
                         <div className="flex gap-5">
-                            <img className="w-[100px]" src={image.medium} alt="image" />
+                            {image?.medium && <img className="w-[100px]" src={image.medium} alt="image" />}
                             <div>
                                 <h3 className="text-2xl font-semibold text-slate-100">{name}</h3>
                                 {premiered && <p className="text-yellow-400">Premiered: {premiered}</p>}
@@ -65,7 +65,7 @@ const ShowDetails = () => {
 
                     {/* Show image */}
                     <div className="lg:w-1/3 mx-auto">
-                        {image.original && <img src={image.original} className="w-full opacity-80 hover:scale-105 transition-all duration-500" alt="image" />}
+                        {image?.original && <img src={image.original} className="w-full opacity-80 hover:scale-105 transition-all duration-500" alt="image" />}
                     </div>
                 </div>
 
