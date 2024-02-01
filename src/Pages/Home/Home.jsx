@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ShowCard from '../../Components/ShowCard/ShowCard';
+import { PropagateLoader } from 'react-spinners';
 
 
 const Home = () => {
@@ -23,9 +24,10 @@ const Home = () => {
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 {
-                    show.length > 0 ? show.map((item) => <ShowCard key={item.show?.id} item={item} />) : <div className='my-10'>
-                        <h2 className="text-3xl text-center text-slate-500">No show data right now!</h2>
-                    </div>
+                    show.length > 0 ? show.map((item) => <ShowCard key={item.show?.id} item={item} />) : <div className='my-10 w-11/12 lg:w-9/12 mx-auto text-center bg-[#] flex flex-col items-center justify-center'>
+                    <PropagateLoader color="#f2853b" />
+    
+                </div>
                 }
             </div>
 

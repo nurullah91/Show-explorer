@@ -1,8 +1,8 @@
 # Show Explorer
-This project is made for details information about Shows. You can check details by clicking view details button. And you can go home page by clicking website logo on Navbar.
+This project is made for details information about Shows. You can check details by clicking view details button. And you can go home page by clicking website logo on Navbar. You can book a ticket by clicking on book a ticket button on details page. You can see the number of booked movie name in navbar.
 
-<!-- ![Home page](src/assets/home.png)
-![Details page](src/assets/details.png) -->
+![Home page](src/assets/home.png)
+![Details page](src/assets/details.png)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -17,3 +17,4 @@ npm install
 ```
 npm run dev
 ```
+### Live link: https://show-explorer.vercel.app/
