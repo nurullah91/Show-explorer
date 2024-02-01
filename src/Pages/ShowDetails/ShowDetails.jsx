@@ -3,11 +3,13 @@ import DOMPurify from 'dompurify';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
+import Modal from "../../Components/Modal/Modal";
+import { Toaster } from "react-hot-toast";
 
 const ShowDetails = () => {
     const { id } = useParams();
     const [showData, setShowData] = useState({});
-
+    const [showModal, setShowModal] = useState(false)
     useEffect(() => {
         const url = `https://api.tvmaze.com/shows/${id}`;
 
@@ -15,15 +17,21 @@ const ShowDetails = () => {
             .then(data => setShowData(data.data))
             .catch(err => console.log(err))
     }, [id])
-
     const { name, runtime, premiered, language, summary, image, genres } = showData;
 
     // sanitize data for safely render HTML
     const sanitizedSummery = DOMPurify.sanitize(summary);
 
 
+
+
     return (
         name ? <section className="w-11/12 md:w-9/12 mx-auto my-10 myShadow">
+            {/* Toaster */}
+            <Toaster/>
+            {/* Modal */}
+            {showModal && <Modal setShowModal={setShowModal} showData={showData}/>}
+
             {/* Card */}
             <div className="px-5 md:px-10 py-10">
 
@@ -46,15 +54,18 @@ const ShowDetails = () => {
                             </div>
                         </div>
 
-                        {summary && <div className="text-slate-300 my-5 ">
+                        {summary && <div className="text-slate-300 mt-5 ">
                             <p dangerouslySetInnerHTML={{ __html: sanitizedSummery }} />
                         </div>}
+                        <button onClick={() => setShowModal(true)} className="mb-8 mt-2 bg-yellow-600 px-3 py-2 text-white rounded ">Book a ticket</button>
 
+                        {/* 
+                        <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button> */}
                     </div>
 
                     {/* Show image */}
                     <div className="lg:w-1/3 mx-auto">
-                        {image.original && <img src={image.original} className="w-full" alt="image" />}
+                        {image.original && <img src={image.original} className="w-full opacity-80 hover:scale-105 transition-all duration-500" alt="image" />}
                     </div>
                 </div>
 
